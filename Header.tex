@@ -1,0 +1,95 @@
+% !TeX root = Thesis.tex
+
+\usepackage[UKenglish]{babel}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+% Math fonts
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{microtype} % Use this for nicer text spacing
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+\usepackage[hidelinks]{hyperref}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+% From: https://tex.stackexchange.com/questions/159257/increase-latex-table-row-height
+% Increase the height of table rows, as they seem pretty cramped
+\usepackage{tabularx}
+\setlength\extrarowheight{2pt}
+
+% From: https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+% From: https://tex.stackexchange.com/questions/34155/autoref-does-not-capitalize-initial-character-in-sentence-when-referencing-labe
+\usepackage{catoptions}
+\makeatletter
+\def\figureautorefname{figure}
+\def\tableautorefname{table}
+\def\definitionautorefname{definition}
+%\def\algorithmautorefname{algorithm} % Already defined
+\def\Autoref#1{%
+  \begingroup
+  \edef\reserved@a{\cpttrimspaces{#1}}%
+  \ifcsndefTF{r@#1}{%
+    \xaftercsname{\expandafter\testreftype\@fourthoffive}
+      {r@\reserved@a}.\\{#1}%
+  }{%
+    \ref{#1}%
+  }%
+  \endgroup
+}
+\def\testreftype#1.#2\\#3{%
+  \ifcsndefTF{#1autorefname}{%
+    \def\reserved@a##1##2\@nil{%
+      \uppercase{\def\ref@name{##1}}%
+      \csn@edef{#1autorefname}{\ref@name##2}%
+      \autoref{#3}%
+    }%
+    \reserved@a#1\@nil
+  }{%
+    \autoref{#3}%
+  }%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+% For \bibentry
+\usepackage{bibentry}
+\nobibliography*
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+% Author: Phil Taylor
+%\usepackage[draft]{todonotes}
+%\newcommand{\citationneeded}[1]{\textcolor{blue}{\textbf{[ citation needed~\citet{#1}}}}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+\usepackage[acronym,symbols,nonumberlist,toc,nogroupskip]{glossaries}
+\makenoidxglossaries
+
+\include{Preamble/GlossaryDefs}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%

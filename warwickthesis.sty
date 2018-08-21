@@ -1,0 +1,902 @@
+% 30 sept 96 copyright page modified
+
+% 2 Oct title page compressed to make room for longer titles
+
+
+% wthesis.sty modified by M hadley from utthesis.sty  Sept 96
+% is used for all my comments and changes.
+% more modifications made in December 1996
+%!! modifications made in March 2009 to use setspace to control spacing and to be compatible with pdfLatex
+% Modifications by Matthew Bradbury in 2018 to use new warwick branding and updated library deposit form
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% File: utthesis.sty, version 2.0, January 1995
+%%% =============================================
+%%% Copyright (c) 1995 by Dinesh Das.  All rights reserved.
+%%% This file is free and can be modified or distributed as long as
+%%% you meet the following conditions:
+%%%
+%%% (1) This copyright notice is kept intact on all modified
+% wthesis.sty modified by M hadley from utthesis.sty  Sept 96
+% warwickthesis.sty modified by Matthew Bradbury from wthesis.sty
+%! %! is used for all my comments and changes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% File: utthesis.sty, version 2.0, January 1995
+%%% =============================================
+%%% Copyright (c) 1995 by Dinesh Das.  All rights reserved.
+%%% This file is free and can be modified or distributed as long as
+%%% you meet the following conditions:
+%%%
+%%% (1) This copyright notice is kept intact on all modified copies.
+%%% (2) If you modify this file, you MUST NOT use the original file name.
+%%%
+%%% This file defines macros used for preparing theses for
+%%% The University of Texas at Austin.  It has been tested with LaTeX2e.
+%%% I do NOT guarantee that it will meet all requirements of the
+%%% Graduate School; however,
+%! neither do I, but I am fairly confident because the university
+%regulations are almost minimal.
+%! if you find that something violates the
+%! specifications, please send me email at <m.j.hadley@warwick.ac.uk>
+%! I will try to fix it.
+%%%
+%%% Usage:
+%%% ======
+%%%
+%%% To use this file with LaTeX2e, make sure your TEXINPUTS environment
+%%% variable contains the directory in which this file is located.
+%%% Include this file as a package in the preamble:
+%%%
+%%% \documentclass[...]{report}
+%!   \usepackage{wnewthesis}
+%%%
+%%% On non-UNIX systems, there might be different environment variables
+%%% that might need to be set.  I know nothing about such machines,
+%%% however; consult your local guru for details.
+%%%
+%%% A template for a thesis is provided in the file
+%!   warwickthesis.tex, available
+%%% from the same place where you obtained this file.
+%%%
+%%% Command Names:
+%%% ==============
+%%%
+%%% ALL command names used in this file that are used to format the
+%%% thesis begin with "thesis" (e.g., \thesisauthor).  All of these
+%%% commands can be changed by the user using \renewcommand, e.g.,
+%%%
+%%% \renewcommand{\thesisauthor}{First M. Last}
+%%%
+%%% after loading the package in LaTeX2e.
+%%%
+%%% The following is a list of all thesis-related variables used together
+%%% with their default values:
+%! some are not used by Univ Warwick but I have left them in anyway.
+%%%
+%%% \thesisauthor    %% Name of the author; defaults to "Ima Student".
+%!  \thesisdepartmentname  %! Department name; defaults to "mydepartemnt"
+%%% \thesismonth     %% Month of graduation; defaults to "May".
+%%% \thesisyear      %% Year of graduation; defaults to "1994".
+%%% \thesistitle     %% Full title of dissertation; defaults to "Title".
+%%% \thesistitletypesize
+%%%                  %% Typesize used to typeset \thesistitle; defaults
+%%%                  %% to \Large.
+%%% \thesisauthorpreviousdegrees
+%%%                  %% Previous degrees of author; defaults to "Degree"
+%%% \thesissupervisor%% Name of thesis supervisor; defaults to "Supervisor"
+%%% \thesisauthoraddress
+%%%                  %% Permanent address of author; defaults to "USA"
+%%% \thesistypist    %% Name of thesis typist; defaults to "the author".
+%%% \thesistype      %% Type of thesis; defaults to "Dissertation".
+%%% \thesistypetypesize
+%%%                  %% Typesize used to typeset \thesistype; defaults to
+%%%                  %% \large.
+%%% \thesisdegree    %% Degree for which thesis is submitted; defaults to
+%%%                  %% "Doctor of Philosophy".
+%%% \thesisdegreetypesize
+%%%                  %% Typesize used to typeset \thesisdegree; defaults to
+%%%                  %% \large.
+%%% \thesisdegreeabbreviation
+%%%                  %% Abbreviation of \thesisdegree; defaults to "Ph.D.".
+%!   \thesissubmission  %! The wording on the frontpage.
+%!                      %! Defaults to:
+%!                       Submitted to the University of Warwick\\
+%!                                   for the degree of
+%!
+%%% \thesisvitahead  %% Title of the vita page; defaults to "Vita".
+%%% \thesisvitaheadtypesize
+%%%                  %% Typesize used to typeset \thesisvitahead;
+%%%                  unused.
+%%% \thesisdeclarationhead
+%%%                  %% Title of the declaration page; defaults to
+%%%                  %% "Declaration".
+%%% \thesisabstracthead
+%%%                  %% Title of the abstract page; defaults to
+%%%                  %% "Abstract".
+%%% \thesisabbreviationhead
+%%%                  %% Title of the abbreviations page; defaults to
+%%%                  %% "Abbreviations".
+%%% \thesisacknowledgmenthead
+%%%                  %% Title of the acknowledgments page; defaults to
+%%%                  %% "Acknowledgments".
+%%% \thesisacknowledgmentheadtypesize
+%%%                  %% Typesize used to typeset \thesisacknowledgmenthead;
+%%%                  %% unused.
+%%% \thesisstudent   %% Name of author with previous degrees; defaults to
+%%%                  %% "\thesisauthor, \thesisauthorpreviousdegrees".
+%%% \thesisstudenttypesize
+%%%                  %% Typesize used to typeset \thesisstudent; defaults
+%%%                  %% to \large.
+%!  \thesiscopyrightagree
+%!                   %! agreement for copying the theisis; defaults to
+%!                   %! agree
+%!!!!!!!!!!!!!!!!!!!! The following are not used by Univ. of Warwick !!!!
+%%% \thesisdedication%% Person or thing dedicated to; defaults to
+%%%                  %% "To myself". :-)
+%%%
+%%% \thesisapprovedby%% Approval of dissertation committee; defaults to
+%%%                  %% "Approved by".
+%%% \thesisapprovedbytypesize
+%%%                  %% Typesize used to typeset \thesisapprovedby; defaults
+%%%                  %% to \large.
+%%% \thesiscopyrightholder
+%%%                  %% Name of copyright holder; defaults to \thesisauthor.
+%%% \thesiscommitteesize
+%%%                  %% Number of members in thesis committee; defaults to 5.
+%%% \thesiscommittee %% Name of thesis committee; defaults to
+%%%                  %% "Dissertation Committee:".
+%%% \thesiscommitteetypesize
+%%%                  %% Typesize used to typeset \thesiscommittee; defaults
+%%%                  %% to \large.
+%%% \thesisacknowledgmentsigname
+%%%                  %% Signature on the acknowledgments page; defaults to
+%%%                  %% \thesisauthor.
+%%% \thesisacknowledgmentsignametypesize
+%%%                  %% Typesize used to typeset \thesisacknowledgmentsigname;
+%%%                  %% defaults to \large.
+%%% \thesisacknowledgmentsigplace
+%%%                  %% Address used on the acknowledgments page; defaults
+%%%                  %! to "The University of Warwick \\ \thesismonth
+%%%                  %% \thesisyear".
+
+%%% Most of the default values will satisfy the Graduate School's
+%%% requirements; however, at a minimum, the user SHOULD redefine the
+%%% following commands:
+%%%
+%%% \thesisauthor
+%!  \thesisdepartmentname
+%%% \thesismonth
+%%% \thesisyear
+%%% \thesistitle
+%%% \thesisauthorpreviousdegrees
+%%% \thesissupervisor   %! not really used.
+%%% \thesisauthoraddress
+%%%
+%%% In addition to the above variables, the following commands are
+%%% provided to generate the optional sections of the thesis:
+%%%
+%%% \thesiscopyrightpage
+%%%                  %% Generates the copyright page.
+%%% \thesistitlepage %% Generates the title page. %! ESSENTIAL
+%%% \thesissignaturepage
+%%%                  %% Generates the signature page. %! NOT USED
+%%% \thesisdedicationpage
+%%%                  %% Generates the dedication page. %! NOT USED
+%%%
+%%% There are also a few environments to generate paragraph-like text:
+%%%
+%%% thesisacknowledgments
+%%%                  %% Text of acknowledgments.
+%!  thesisdeclaration
+%!                   %! Text of declaration of original work: ESSENTIAL
+%!  thesisabbreviations
+%!                   %! List of abbreviations
+%%% thesisabstract   %% Text of abstract. %! ESSENTIAL
+%%% thesisauthorvita %% Text of author's vita.
+%%%
+%%% Bells and Whistles:
+%%% ===================
+%%%
+%%% The following commands are provided purely for playing around with.
+%%% They should be used in the document preamble (before \begin{document}).
+%%%
+%%% \thesisdraft     %% Prints a timestamp at the top of each page.  This
+%%%                  %% must be invoked in the document preamble (before
+%%%                  %% \begin{document}).
+%%% \leftchapter, \centerchapter, \rightchapter
+%%%                  %% These commands generate left-justified, centered,
+%%%                  %% and right-justified chapter headings, respectively.
+%! \singlespacing, \onehalfspacing, \doublespacing
+%%%                  %% These define the line spacing to single-space,
+%%%                  %% one-and-one-half space, and double-space
+%%%                  %% respectively.  Note that the minimum spacing
+%%%                  %% required by the Graduate School is \oneandhalfspace,
+%%%                  %% but \singlespace is useful, e.g., when using
+%%%                  %% \thesisdraft.
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\typeout{*************************************************************}
+\typeout{** Warwick Thesis Style File Sept 1996                       }
+\typeout{*************************************************************}
+
+%%%
+%%% Set up page layout parameters.
+%%%
+\setlength{\textheight}{8.5in}  %! increased page length Feb 2010 (was 8.0in)
+\setlength{\oddsidemargin}{0.7in}
+\setlength{\evensidemargin}{0.7in}
+\setlength{\textwidth}{5.50in}
+\setlength{\topmargin}{0.5in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\parindent}{12mm}
+
+%%%
+%%% Set up default values.
+%%%
+\newcommand{\@universityname}{The University of Warwick}
+\newcommand{\thesisdepartmentname}{mydepartment}
+\newcommand{\@publicationno}{Publication No.\ \line(1,0){40} \\[10mm]}
+\newcommand{\thesisauthor}{Ima Student} 
+\newcommand{\thesisauthorno}{ ..university number..}
+\newcommand{\thesismonth}{May}
+\newcommand{\thesisyear}{1994} 
+\newcommand{\thesistitle}{Title}
+\newcommand{\thesistitletypesize}{\Large}
+\newcommand{\thesisauthorpreviousdegrees}{Degree}
+\newcommand{\thesissupervisor}{Supervisor}
+\newcommand{\thesisauthoraddress}{USA}
+\newcommand{\thesisapprovedby}{Approved by}
+\newcommand{\thesisapprovedbytypesize}{\large}
+\newcommand{\thesiscopyrightholder}{\thesisauthor}
+\newcommand{\thesiscopyrightagree}{agree}
+
+\newcommand{\thesislibraryonlineimmediately}{agree}
+\newcommand{\thesislibraryhardimmediately}{agree}
+\newcommand{\thesislibraryafterperiod}{2 years}
+
+\newcommand{\thesistypist}{the author}
+\newcommand{\thesistype}{Thesis}
+\newcommand{\thesistypetypesize}{\large}
+\newcommand{\thesistypesize}{\large} \newcommand{\thesisdegree}{Doctor
+of Philosophy}
+\newcommand{\thesisdegreetypesize}{\large}
+\newcommand{\thesisdegreeabbreviation}{Ph.D.}
+\newcommand{\thesissubmission}{Submitted to \@universityname \\for
+the degree of }
+\newcommand{\thesiscommitteesize}{5}
+\newcommand{\thesiscommittee}{Dissertation Committee:}
+\newcommand{\thesiscommitteetypesize}{\large}
+\newcommand{\thesisvitahead}{Vita}
+\newcommand{\thesisvitaheadtypesize}{\Large}
+\newcommand{\thesisacknowledgmenthead}{Acknowledgments}
+\newcommand{\thesisacknowledgmentheadtypesize}{\Large}
+\newcommand{\thesisacknowledgmentsigname}{\thesisauthor}
+\newcommand{\thesisacknowledgmentsignametypesize}{\large}
+%! notused
+%!  \newcommand{\thesisacknowledgmentsigplace}%
+%!    {{\slshape
+%!       \renewcommand{\arraystretch}{1.0}
+%!       \begin{tabular}{l}
+%!         \@universityname \\
+%!         \thesismonth\ \thesisyear
+%!       \end{tabular}}}
+
+\newcommand{\thesisabbreviationhead}{Abbreviations}
+
+\newcommand{\thesisdeclarationhead}{Declarations}
+
+\newcommand{\thesisabstracthead}{Abstract}
+
+\newcommand{\thesisstudent}{\thesisauthor, \thesisauthorpreviousdegrees}
+\newcommand{\thesisstudenttypesize}{\large}
+\newcommand{\thesisdedication}{}
+
+%%%
+%%% Command for masters theses.  \phdthesis is provided for symmetry.
+%%%
+\newcommand{\mastersthesis}{
+    \renewcommand{\thesistype}{Thesis}
+    \renewcommand{\@publicationno}{}
+    \renewcommand{\thesisdegree}{Master of Arts}
+    \renewcommand{\thesisdegreeabbreviation}{M.A.}
+    \renewcommand{\thesiscommitteesize}{2}
+    \renewcommand{\thesiscommittee}{Supervising Committee:}}
+\newcommand{\phdthesis}{}
+
+%%%
+%%% Set up other commands.
+%%%
+\newcommand{\@defaultbaselinestretch}{1.5}
+\newcommand{\@base}[1]{\renewcommand{\baselinestretch}{#1}}
+%\newcommand{\singlespace}{\renewcommand{\@defaultbaselinestretch}{1.1}}
+%\newcommand{\oneandhalfspace}{\renewcommand{\@defaultbaselinestretch}{1.5}}
+%\newcommand{\doublespace}{\renewcommand{\@defaultbaselinestretch}{1.7}}
+\newcommand{\@thesistitle}{\textbf{\thesistitletypesize \thesistitle}}
+\newcommand{\@thesisapprovedby}%
+    {\textbf{\thesisapprovedbytypesize \thesisapprovedby}}
+\newcommand{\@thesistype}{\textbf{\thesistypetypesize \thesistype}}
+\newcommand{\@thesisdegree}{\textbf{\thesisdegreetypesize \thesisdegree}}
+\newcommand{\@thesisdegreeabbreviation}{\thesisdegreeabbreviation}
+\newcommand{\@thesiscommittee}%
+    {\textbf{\thesiscommitteetypesize \thesiscommittee}}
+\newcommand{\@thesisvitahead}{\thesisvitahead}
+\newcommand{\@thesisacknowledgmenthead}%
+    {\thesisacknowledgmenthead}
+\newcommand{\@thesisdeclarationhead}%
+    {\thesisdeclarationhead}
+\newcommand{\@thesisabstracthead}%
+    {\thesisabstracthead}
+\newcommand{\@thesisabbreviationhead}%
+    {\thesisabbreviationhead}
+%! \newcommand{\@thesisacknowledgmentsigname}%
+%!    {\textsc{\thesisacknowledgmentsignametypesize \thesisacknowledgmentsigname}}
+%!\newcommand{\@thesisacknowledgmentsigplace}{\thesisacknowledgmentsigplace}
+\newcommand{\@thesisstudent}{\textbf{\thesisstudenttypesize \thesisstudent}}
+
+%%%
+%%% Indent the first paragraph after a sectioning command.
+%%%
+%\let\@afterindentfalse\@afterindenttrue
+%\@afterindenttrue
+
+%%%
+%%% Set up default page numbering and line spacing.
+%%%
+\newcommand{\@textpagenumbering}{arabic}
+\newcommand{\@preamblepagenumbering}{roman}
+\newcommand{\@textpagestyle}{plain}
+\newcommand{\@preamblepagestyle}{plain}
+\pagenumbering{\@preamblepagenumbering}
+\@base{\@defaultbaselinestretch}
+
+\newcommand{\@chaptertype}{\chaptername}
+\newcommand{\@appendix}{0}
+
+%%%
+%%% Command to generate up-to-date copyright page.
+%%%
+
+\usepackage{calc} % Needed to calculate how much to offset the warwick logo by
+
+\RequirePackage{pifont}
+\newcommand{\wcmark}{\ding{51}}%
+\newcommand{\wtick}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\wcmark}}\hspace{-2.5pt}}
+
+\newcommand{\thesislibrarycopyrightpage}{
+%%* Localise the \leftskip by grouping
+%{\leftskip-0.25in
+%
+%\fontsize{12}{15}                       % set to 12pt
+%\selectfont
+
+%!-------------------------------------------------------------------------
+%! Produce Warwick letterhead     uses epsf.tex epsf.sty black_white.eps
+%!         For the LIBRARY
+
+%!-------------------------------------------------------------------------
+\AddToShipoutPictureBG*{%
+  % -0.625cm is found from looking at the word template available at:
+  % https://warwick.ac.uk/services/externalaffairs/brand/thesis/
+  \AtPageUpperLeft{\raisebox{-\height-0.625cm}{\includegraphics{Images/keyline_A4_portrait_black_2}}}%
+}
+
+\setlength{\unitlength}{1pt}
+\pagestyle{empty}
+
+%!-------------------------------------------------------------------------
+%! End of Warwick letterhead
+%!-------------------------------------------------------------------------
+
+\fontfamily{phv}                        % set font to Adobe Helvetica
+%\fontsize{8}{14}                        % set to 8pt with 10pt leading (not normally needed)
+\selectfont
+\begin{spacing}{1}
+
+{\centering
+\textbf{\Large Library Declaration and Deposit Agreement}
+\par}
+\vspace{2mm}
+\begin{enumerate}
+  \item \textbf{STUDENT DETAILS}
+  \begin{description}
+      \item[] \thesisauthor
+      \item[] \thesisauthorno
+  \end{description}
+  
+  \item \textbf{THESIS DEPOSIT}
+  \begin{enumerate}[2.1]
+      \item  Under your registration at the University, you are required to deposit your thesis with the University in BOTH hard copy and in digital format. The digital copy should normally be saved as a single pdf file.
+      \item The hard copy will be housed in the University Library. The digital copy will be deposited in the University's Institutional Repository (WRAP). Unless otherwise indicated (see 2.6 below), this will be made immediately openly accessible on the Internet and will be supplied to the British Library to be made available online via its Electronic Theses Online Service (EThOS) service. 
+%[At present, theses submitted for a Master's degree by Research (MA, MSc, LLM, MS or MMedSci) are not being deposited in WRAP and not being made available via EthOS. This may change in future.] 
+      \item In exceptional circumstances, the Chair of the Board of Graduate Studies may grant permission for an embargo to be placed on public access to the thesis \textbf{in excess of two years}. This must be applied for when submitting the thesis for examination (further information is available in the Guide to Examinations for Higher Degrees by Research.)
+      \item If you are depositing a thesis for a Master's degree by Research, the options below only relate to the hard copy thesis.
+      \item If your thesis contains material protected by third party copyright, you should consult with your department, and if appropriate, deposit an abri\-dged hard and/or digital copy thesis.
+      \item Please tick one of the following options for the availability of your thesis (guidance is available in the Guide to Examinations for Higher Degrees by Research): 
+      \begin{description}
+      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{agree} \AND \equal{\thesislibraryhardimmediately}{agree}}{\item[\wtick] Both the hard and digital copy thesis can be made publicly available immediately}{}
+      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{agree}}{\item[\wtick] The hard copy thesis can be made publicly available immediately and the digital copy thesis can be made publicly available after a period of two years (should you subsequently wish to reduce the embargo period please inform the Library)}{}
+      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{disagree} \AND \equal{\thesislibraryafterperiod}{2 years}}{\item[\wtick] Both the hard and digital copy thesis can be made publicly available after a period of two years (should you subsequently wish to reduce the embargo period please inform the Library)}{}
+      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{disagree} \AND \NOT\equal{\thesislibraryafterperiod}{2 years}}{\item[\wtick] Both the hard copy and digital copy thesis can be made publicly available after {\thesislibraryafterperiod} (insert time period in excess of two years). \textbf{This option requires the prior approval of the Chair of the Board of Graduate Studies (see 2.3 above)}}{}
+      \end{description}
+      \item The University encourages users of the Library to utilise theses as much as possible, and unless indicated below users will be able to photocopy your thesis.
+      \begin{description}
+      	%\ifthenelse{\equal{\thesiscopyrightagree}{agree}}{\item[\wnotick]}{\item[\wtick]} \textbf{I do not} wish for my thesis to be photocopied
+      	\item I \textbf{\thesiscopyrightagree} that my thesis may be photocopied.
+      \end{description}
+      \iffalse\item
+      \begin{enumerate}[(a)]
+      \item \underline{Hard Copy}
+         I hereby deposit a hard copy of my thesis in the University Library to be made publicly available to readers \thesiscopyrightagreewhen\\
+         I \thesiscopyrightagree\ that my thesis may be photocopied.
+       \item \underline{Digital Copy}
+        I hereby deposit a digital copy of my thesis to be held in WRAP and made available via EThOS.\\
+       My  \thesisinternetagree
+        \end{enumerate}\fi
+    \end{enumerate}
+    
+   \item \textbf{GRANTING OF NON-EXCLUSIVE RIGHTS}\\
+Whether I deposit my Work personally or through an assistant or other agent, I agree to the following:
+Rights granted to the University of Warwick and the British Library and the user of the thesis through this agreement are non-exclusive. I retain all rights in the thesis in its present version or future versions. I agree that the institutional repository administrators and the British Library or their agents may, without changing content, digitise and migrate the thesis to any medium or format for the purpose of future preservation and accessibility.
+  \item  \textbf{ DECLARATIONS}\\[1em] I DECLARE THAT:
+\begin{itemize}%[leftmargin=*]
+\item I am the author and owner of the copyright in the thesis and/or I have the authority of the authors and owners of the copyright in the thesis to make this agreement. Reproduction of any part of this thesis for teaching or in academic or other forms of publication is subject to the normal limitations on the use of copyrighted materials and to the proper and full acknowledgement of its source.
+\item The digital version of the thesis I am supplying is either the same version as the final, hardbound copy submitted in completion of my degree once any minor corrections have been completed, or is an abridged version (see 2.5 above).
+\item I have exercised reasonable care to ensure that the thesis is original, and does not to the best of my knowledge break any UK law or other Intellectual Property Right, or contain any confidential material. 
+\item I understand that, through the medium of the Internet, files will be available to automated agents, and may be searched and copied by, for example, text mining and plagiarism detection software.
+\item At such time that my thesis will be made publically available digitally (see 2.6 above), I grant the University of Warwick and the British Library a licence to make available on the Internet the thesis in digitised format through the Institutional Repository and through the British Library via the EThOS service.
+\item If my thesis does include any substantial subsidiary material owned by third-party copyright holders, I have sought and obtained permission to include it in any version of my thesis available in digital format and that this permission encompasses the rights that I have granted to the University of Warwick and to the British Library.
+\end{itemize}
+
+\item \textbf{LEGAL INFRINGEMENTS}\\
+I understand that neither the University of Warwick nor the British Library have any obligation to take legal action on behalf of myself, or other rights holders, in the event of infringement of intellectual property rights, breach of contract or of any other right, in the thesis.
+\end{enumerate}
+
+\vspace{-1ex}
+\hspace{-12mm}\rule{140mm}{.1mm}\\
+\emph{Please sign this agreement and ensure it is bound into the final hard bound copy of your thesis, which should be submitted to Student Reception, Senate House.}\\
+\vspace{7mm} \\
+{Student's signature:} \dotfill \dotfill {Date:} \dotfill \\
+\end{spacing}
+\newpage
+\normalfont
+}
+
+\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+
+%%%
+%%% Command to generate a Colour title page using the new branding.
+%%%
+\newcommand{\thesistitlebrandingpage}{
+
+\thispagestyle{empty}
+
+\AddToShipoutPictureBG*{%
+  % -0.625cm is found from looking at the word template available at:
+  % https://warwick.ac.uk/services/externalaffairs/brand/thesis/
+  \AtPageUpperLeft{\raisebox{-\height-0.625cm}{\includegraphics{Images/keyline_A4_portrait_black_2}}}%
+}
+
+\begin{spacing}{2}
+
+\setlength{\unitlength}{1mm}
+
+% \input epsf
+\begin{center}
+%\begin{picture}(50,65)%(56,50)
+%%* Remove file extension to work with both latex (.eps) and pdflatex (.pdf)
+%%* Binary knows which extension to use by default
+ \includegraphics[width=5cm]{Images/Warwick_Crest}
+%\end{picture}
+
+\begin{picture}(140,100)(0,95)
+\put(70,170){%
+	\makebox(0,0){%
+		\begin{minipage}{130mm}%
+			\begin{center}\@thesistitle\end{center}%
+		\end{minipage}}}
+\put(70,145){\makebox(0,0){by}}
+\put(70,135){\makebox(0,0){\Large \textbf{\thesisauthor}}}
+\put(70,100){%
+	\makebox(0,0){%
+		\begin{minipage}{100mm}%
+			\begin{center}%
+                \textbf{\thesistypetypesize \thesistype}\\
+                       \thesissubmission\\
+                       \textbf{\thesisdegreetypesize \thesisdegree}%
+            \end{center}%
+        \end{minipage}}}
+\put(70,60){\makebox(0,0){\textbf{\Large \thesisdepartmentname}}}
+\put(70,50){\makebox(0,0){\thesismonth \ \thesisyear}}
+
+\end{picture}
+\end{center}
+\setlength{\unitlength}{1pt}
+\end{spacing}
+\newpage
+}
+
+%%%
+%%% Command to generate signature page.
+%%%
+%!\newcommand{\thesissignaturepage}{
+%!    \thispagestyle{empty}
+%!    \begin{spacing}{2}
+%!    \strut \vfill
+%!    \begin{center}
+%!      \@thesistitle
+%!    \end{center}
+%!    \vspace{50mm}
+%!    \mbox{} \hfill \begin{minipage}{67mm}
+%!                     \begin{spacing}{1}
+%!                     \@thesisapprovedby\hfill\mbox{} \\
+%!                     \@thesiscommittee \\[15mm]
+%!                     \end{spacing}
+%!                     \setlength{\unitlength}{1mm}
+%!                     \begin{picture}(67,70)(0,0)
+%!                       \multiput(0,70)(0,-10)
+%!                         {\thesiscommitteesize}{\line(1,0){67}}
+%!                     \end{picture}
+%!                   \end{minipage}
+%!    \vfill \strut
+%!    \end{spacing}
+%!    \newpage}
+
+%%%
+%%% Command to generate dedication page.
+%%%
+%!!!!!!!!!!! Warwick does this in the acknowledgements page
+%!\newcommand{\thesisdedicationpage}{
+%!    \thispagestyle{empty}
+%!    \strut \vfill
+%!    \begin{spacing}{\@defaultbaselinestretch}
+%!    \begin{center}
+%!      \thesisdedication
+%!    \end{center}
+%!    \end{spacing}
+%!    \vfill \strut
+%!    \newpage}
+
+%%%
+%%% Environment to generate acknowledgments page.
+%%%
+\newenvironment{thesisacknowledgments}
+    {%\doublespace\small\normalsize
+     \chapter*{\@thesisacknowledgmenthead
+         \@mkboth{\uppercase{\@thesisacknowledgmenthead}}
+                 {\uppercase{\@thesisacknowledgmenthead}}}
+     \addcontentsline{toc}{chapter}{\@thesisacknowledgmenthead}
+     \begin{spacing}{\@defaultbaselinestretch}}
+    {\end{spacing}
+%!                \par \vspace{20mm}
+%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
+%!                \raggedright \@thesisacknowledgmentsigplace
+            \newpage}
+%%%
+%%% Environment to generate declarations page.
+%%%
+\newenvironment{thesisdeclaration}
+    {%\doublespace\small\normalsize
+     \chapter*{\@thesisdeclarationhead
+         \@mkboth{\uppercase{\@thesisdeclarationhead}}
+                 {\uppercase{\@thesisdeclarationhead}}}
+     \addcontentsline{toc}{chapter}{\@thesisdeclarationhead}
+     \begin{spacing}{\@defaultbaselinestretch}}
+    {\end{spacing}
+%!                \par \vspace{20mm}
+%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
+%!                \raggedright \@thesisacknowledgmentsigplace
+            \newpage}
+%%%
+%%% Environment to generate abstract page.
+%%%
+\newenvironment{thesisabstract}
+    {%\doublespace\small\normalsize
+     \chapter*{\@thesisabstracthead                 %!picked up from above
+         \@mkboth{\uppercase{\@thesisabstracthead}}  %!picked up from above
+                 {\uppercase{\@thesisabstracthead}}} %!picked up from above
+       \addcontentsline{toc}{chapter}{\@thesisabstracthead}
+%!     \vspace*{0mm}
+%!     \begin{center}
+%!       \setlength{\unitlength}{1mm}
+%!      \begin{spacing}{2}
+%!       \@thesistitle \\[10mm]
+%!       \end{spacing}
+%!       \begin{spacing}{\@defaultbaselinestretch}
+%!       \@publicationno
+%!       \thesisauthor, \thesisdegreeabbreviation \\
+%!       \@universityname, \thesisyear \\[10mm]
+%!       \end{spacing}
+%!       Supervisor: \thesissupervisor \\
+%!     \end{center}
+%!     \vspace{5mm}
+     \begin{spacing}{\@defaultbaselinestretch} \noindent}
+    {\end{spacing}\newpage}
+
+%%%
+%%% Environment to generate abbreviations page.
+%%%
+\newenvironment{thesisabbreviations}
+    {%\doublespace\small\normalsize
+     \chapter*{\@thesisabbreviationhead
+         \@mkboth{\uppercase{\@thesisabbreviationhead}}
+                 {\uppercase{\@thesisabbreviationhead}}}
+     \addcontentsline{toc}{chapter}{\@thesisabbreviationhead}
+     \begin{spacing}{\@defaultbaselinestretch}}
+    {\end{spacing}
+%!                \par \vspace{20mm}
+%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
+%!                \raggedright \@thesisacknowledgmentsigplace
+            \newpage}
+%%%
+%%% Environment to generate vita page.
+%%%
+\newenvironment{thesisauthorvita}
+    {\clearpage
+     \chapter*{\@thesisvitahead
+         \@mkboth{\uppercase{\@thesisvitahead}}
+                 {\uppercase{\@thesisvitahead}}}
+    \addcontentsline{toc}{chapter}{\@thesisvitahead}
+    \begin{spacing}{\@defaultbaselinestretch}}
+    {\end{spacing} \par \vspace{20mm}
+     \noindent Permanent Address:
+       \begin{minipage}[t]{90mm}
+         \thesisauthoraddress
+       \end{minipage}
+     \par \vspace{15mm}
+     \noindent This \lowercase\expandafter{\thesistype} was
+       typeset with \LaTeXe\footnote{\LaTeXe{} is an extension of \LaTeX.
+       \LaTeX{} is a collection of macros for \TeX.  \TeX{} is a
+       trademark of the American Mathematical Society. The style
+    package {\em warwickthesis} was used.         %! replaces texas ack.
+    } by \thesistypist.}
+
+\newcommand{\@chapteralignment}{\centering}
+\renewcommand{\chapter}{\clearpage
+   \ifnum\@appendix=1
+     \renewcommand{\@chaptertype}{\appendixname}
+   \else
+     \renewcommand{\@chaptertype}{\chaptername}
+   \fi
+   \thispagestyle{plain}%
+   \global\@topnum\z@
+   \@afterindentfalse
+   \secdef\@chapter\@schapter
+   }
+\renewcommand\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \renewcommand{\@chapapp}{\appendixname}%
+  \renewcommand{\thechapter}{\Alph{chapter}}
+  \renewcommand{\@appendix}{1}}
+
+%%%
+%%% Define chapter heading placement commands.
+%%%
+\newcommand{\leftchapter}{
+    \renewcommand{\@chapteralignment}{\raggedright}}
+\newcommand{\centerchapter}{
+    \renewcommand{\@chapteralignment}{\centering}}
+\newcommand{\rightchapter}{
+    \renewcommand{\@chapteralignment}{\raggedleft}}
+
+%%%
+%%% Command from report.cls, (c) LaTeX3 Project.
+%%%
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                      \refstepcounter{chapter}%
+                      \typeout{\@chapapp\space\thechapter.}%
+                      \addcontentsline{toc}{chapter}%
+                          {\@chaptertype{} \protect\numberline{\thechapter}#1}%
+                    \else
+                      \addcontentsline{toc}{chapter}{\@chaptertype{} #1}
+                    \fi
+                    \ifnum\value{chapter}=1
+                      \ifnum\@appendix=0
+                        \pagestyle{\@textpagestyle}
+                        \pagenumbering{\@textpagenumbering}
+                      \fi
+                    \fi
+                    \chaptermark{#1}%
+                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi
+                    }
+
+%%%
+%%% Command from report.cls, (c) LaTeX3 Project.
+%%%
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \@chapteralignment \reset@font
+    \ifnum \c@secnumdepth >\m@ne
+      \huge\bfseries \@chapapp{} \thechapter
+      \par
+      \vskip 20\p@
+    \fi
+    \Huge \bfseries #1\par
+    \nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \@chapteralignment
+    \reset@font
+    \Huge \bfseries  #1\par
+    \nobreak
+    \vskip 40\p@
+  }}
+
+%%%
+%%% Command from report.cls, (c) LaTeX3 Project.
+%%%
+
+
+%\renewenvironment{thebibliography}[1]
+%     {\chapter*{\bibname
+%         \@mkboth{\uppercase{\bibname}}{\uppercase{\bibname}}}%
+%      \addcontentsline{toc}{chapter}{\bibname}
+%      \list{\@biblabel{\arabic{enumiv}}}%
+%           {\settowidth\labelwidth{\@biblabel{#1}}%
+%            \leftmargin\labelwidth
+%            \advance\leftmargin\labelsep
+%            \if@openbib
+%              \advance\leftmargin\bibindent
+%              \itemindent -\bibindent
+%              \listparindent \itemindent
+%              \parsep \z@
+%            \fi
+%            \usecounter{enumiv}%
+%            \let\p@enumiv\@empty
+%            \renewcommand\theenumiv{\arabic{enumiv}}}%
+%      \if@openbib
+%        \renewcommand\newblock{\par}
+%      \else
+%        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+%      \fi
+%      \sloppy\clubpenalty4000\widowpenalty4000%
+%      \sfcode`\.=\@m}
+%     {\def\@noitemerr{\@warning{Empty `thebibliography' environment}}%
+%      \endlist}
+
+%%%
+%%% Command from report.cls, (c) LaTeX3 Project.
+%%%
+\renewcommand\listoftables{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listtablename
+      \@mkboth{\uppercase{\listtablename}}{\uppercase{\listtablename}}}%
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand\listoffigures{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listfigurename
+      \@mkboth{\uppercase{\listfigurename}}%
+              {\uppercase{\listfigurename}}}%
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+        \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%
+%%% Command to print draft version of the thesis.
+%%%
+\newcommand{\thesisdraft}{
+    \setlength{\topmargin}{0in}
+    \setlength{\headheight}{0.2in}
+    \setlength{\headsep}{0.25in}
+    \renewcommand{\@textpagestyle}{myheadings}
+    \def\ps@myheadings{%
+     \let\@oddfoot\@empty\let\@evenfoot\@empty
+     \def\@oddhead{\textsl{Draft of \timestamp}\hfil\thepage}%
+     \let\@mkboth\@gobbletwo
+     \let\chaptermark\@gobble
+     \let\sectionmark\@gobble}
+    }
+
+%%%
+%%% Code to compute current timestamp.  Some parts by Martin Minow.
+%%%
+\newcount\hour \newcount\minute
+\hour=\time  \divide \hour by 60
+\minute=\time
+\loop \ifnum \minute > 59 \advance \minute by -60 \repeat
+\def\thesistime{\ifnum \hour<13 \number\hour:%
+                      \ifnum \minute<10 0\fi
+                      \number\minute
+                      \ifnum \hour<12 \ am\else \ pm\fi
+         \else \advance \hour by -12 \number\hour:%
+                      \ifnum \minute<10 0\fi
+                      \number\minute \ pm\fi}
+
+\def\thesisdate{\ifcase\month\or
+January\or February\or March\or April\or May\or June\or
+July\or August\or September\or October\or November\or December\fi
+\space\number\day, \number\year}
+
+\newcount\dow
+\newcount\leap
+\newcount\x
+\newcount\y
+
+%leap = year + (month - 14)/12
+\leap=\month \advance\leap by -14 \divide\leap by 12
+  \advance\leap by \year
+
+%dow = (13 * (month + 10 - (month + 10)/13*12) - 1)/5
+\dow=\month \advance\dow by 10
+  \y=\dow \divide\y by 13 \multiply\y by 12
+  \advance\dow by -\y \multiply\dow by 13 \advance\dow by -1 \divide\dow by 5
+
+%dow += day + 77 + 5 * (leap % 100)/4
+\advance\dow by \day \advance\dow by 77
+  \x=\leap \y=\x \divide\y by 100 \multiply\y by 100 \advance\x by -\y
+  \multiply\x by 5 \divide\x by 4 \advance\dow by \x
+
+%dow += leap / 400
+\x=\leap \divide\x by 400 \advance\dow by \x
+
+%dow -= leap / 100 * 2;
+%dow = (dow % 7)
+\x=\leap \divide\x by 100 \multiply\x by 2 \advance\dow by -\x
+  \x=\dow \divide\x by 7 \multiply\x by 7 \advance\dow by -\x
+
+\def\thesisdayofweek{\ifcase\dow
+Sunday\or Monday\or Tuesday\or
+Wednesday\or Thursday\or Friday\or Saturday\fi}
+
+\def\timestamp{\thesistime, \thesisdayofweek, \thesisdate}
+
+%%%
+%%% Commands for spacing.  Some parts from spacing.sty by Stephen Page.
+%%%
+\ifx\undefined\selectfont
+\def\@setsize#1#2#3#4{\@nomath#1
+   \let\@currsize#1\baselineskip
+   #2\baselineskip\baselinestretch\baselineskip
+   \parskip\baselinestretch\parskip
+   \setbox\strutbox\hbox{\vrule height.7\baselineskip
+      depth.3\baselineskip width\z@}
+   \normalbaselineskip\baselineskip#3#4}
+\else
+\def\@newbaseline{%
+    \ifx\undefined\setnew@baselineskip
+      \baselineskip\f@baselineskip\relax
+    \else
+      \setnew@baselineskip
+    \fi
+    \baselineskip\baselinestretch\baselineskip
+    \setbox\strutbox\hbox{\vrule\@height.7\baselineskip
+    \@depth.3\baselineskip \@width\z@}%
+    \normalbaselineskip\baselineskip}
+\fi

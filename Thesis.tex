@@ -1,0 +1,169 @@
+\documentclass[11pt,a4paper]{report}
+
+% Warwick thesis template from: https://www2.warwick.ac.uk/fac/sci/physics/staff/academic/mhadley/wthesis/
+
+\usepackage{warwickthesis,setspace,graphicx}
+\usepackage[numbers,sort&compress,square]{natbib}
+\usepackage{enumerate}
+
+\phdthesis
+
+%\thesisdraft                       %% Uncomment this if you want a draft
+                                     %% version; this will print a timestamp
+                                     %% on each page of your thesis.
+
+\leftchapter                       %% Uncomment one of these if you want
+% \centerchapter                     %% left-justified, centered or
+% \rightchapter                      %% right-justified chapter headings.
+                                     %% Chapter headings includes the
+                                     %% Contents, Acknowledgments, Lists
+                                     %% of Tables and Figures and the Vita.
+                                     %% The default is \centerchapter.
+
+\onehalfspacing                      %! This is the default and gives an acceptable "double spaced" thesis
+                                     %! It is the minimum spacing accepted by the graduate school, and there is no reason to increase the spacing.
+% \singlespacing                     %! Uncomment if you want single-spacing,
+%\doublespacing                     %! uncomment if you want real double-spacing for some perverse reason.
+
+\setlength{\textheight}{8.75in}      %! Uncomment this for a slightly
+                                     %! longer page. The default is now 8.5in (from Feb 2010)
+                                     %! regulations require page numbers to be at least 1.5cm into the page.
+                                     %! You can even try a longer page to save paper.
+
+\renewcommand{\thesisdepartmentname}{Department of Computer Science}
+
+\renewcommand{\thesissubmission}{
+	Submitted to the University of Warwick\\
+	in partial fulfilment of the requirements\\
+	for admission to the degree of}
+
+\renewcommand{\thesisauthor}{Author Name}
+\renewcommand{\thesisauthorno}{9999999}
+
+
+\renewcommand{\thesismonth}{May}
+\renewcommand{\thesisyear}{2018}
+\renewcommand{\thesistitle}{Thesis Title}
+
+
+
+\renewcommand{\thesistitletypesize}{\huge}
+
+\renewcommand{\thesisauthorpreviousdegrees}{MEng}
+                                     %% Your previous degrees, abbreviated;
+                                     %% separate multiple degrees by commas.
+
+\renewcommand{\thesissupervisor}{Supervisor Name}
+                                     %% Your thesis supervisor; use mixed-case
+                                     %% and don't use any titles or degrees.
+
+\renewcommand{\thesisauthoraddress}{Author Address}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%! For the library declaration page only
+%! \renewcommand{\thesiscopyrightagree}{agree}
+                        %! agreement to allow single photocopies this is the default
+%! \renewcommand{\thesiscopyrightagree}{diagree}
+                        %! refusal  to allow single photocopies
+
+%! Change these to disagree if you do not want access to your thesis immediately
+%! You should do this for online if parts of your thesis are either in submission or not yet submitted to a conference/journal
+%! \newcommand{\thesislibraryonlineimmediately}{agree}
+%! \newcommand{\thesislibraryhardimmediately}{agree}
+%! \newcommand{\thesislibraryafterperiod}{2 years}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% The following commands are all optional, but useful if your requirements
+%%% are different from the default values in utthesis.sty.  To use them,
+%%% simply uncomment (remove the leading %) the line(s).
+
+% \renewcommand{\thesisdegree}{...}  %% Uncomment this only if your thesis
+                                     %% degree is NOT "DOCTOR OF PHILOSOPHY"
+                                     %% for \phdthesis or "MASTER OF ARTS"
+                                     %% for \mastersthesis.  Provide the
+                                     %% correct FULL OFFICIAL name of
+                                     %% the degree.
+
+% \renewcommand{\thesisdegreeabbreviation}{...}
+                                     %% Use this if you also use the above
+                                     %% command; provide the OFFICIAL
+                                     %% abbreviation of your thesis degree.
+
+%\renewcommand{\thesistype}{Thesis}    %% Use this ONLY if your thesis type
+                                     %! is NOT "Thesis"
+                                     %% Provide the OFFICIAL type of the
+                                     %% thesis; use mixed-case.
+
+% \renewcommand{\thesistypist}{...}  %% Use this to specify the name of
+                                     %% the thesis typist if it is anything
+                                     %% other than "the author".
+
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Uncomment this to show the frame of the pdf document to check layout issues.
+%\usepackage{showframe}
+
+\input{Header}
+
+\begin{document}
+
+%! Generate the copyright page for the library.
+\thesislibrarycopyrightpage
+
+\thesistitlebrandingpage
+
+%%* Start roman page numbering here for contents, etc
+%! Begins roman numerals start from page i.
+\pagenumbering{roman}
+
+\microtypesetup{protrusion=false} % disables protrusion locally in the document
+\tableofcontents
+\listoftables
+\listoffigures
+%{\let\clearpage\relax\listofalgorithms} % Uncomment if you have algorithms
+\microtypesetup{protrusion=true} % enables protrusion
+
+
+\include{Preamble/Acknowledgements}
+
+\include{Preamble/Declarations}
+
+\include{Preamble/Abstract}
+
+\include{Preamble/SponsorshipAndGrants}
+
+\include{Preamble/Abbreviations}
+
+%%* Start arabic numbering of main text here
+\pagenumbering{arabic} %! Begins arabic numerals start from page 1.
+
+\include{Chapters/C1_Introduction/Introduction}
+
+\include{Chapters/C2_Background/Background}
+
+\include{Chapters/C3/C3}
+
+\include{Chapters/C4/C4}
+
+\include{Chapters/C5/C5}
+
+\include{Chapters/C6_Evaluation/Discussion}
+
+\include{Chapters/C7_Conclusions/ConclusionsAndFutureWork}
+
+\appendix
+\include{Appendices/Appendices}
+
+%\renewcommand\bibfont{\small} % You might want a smaller bib font
+
+\bibliographystyle{plainnat}
+\bibliography{Bib/bib}
+
+%% Write your vita here
+%\begin{thesisauthorvita}
+%\end{thesisauthorvita}
+
+\end{document}
