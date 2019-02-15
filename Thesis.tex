@@ -30,7 +30,7 @@
                                      %! regulations require page numbers to be at least 1.5cm into the page.
                                      %! You can even try a longer page to save paper.
 
-\renewcommand{\thesisdepartmentname}{Department of Computer Science}
+\renewcommand{\thesisdepartmentname}{Department of \ldots}
 
 \renewcommand{\thesissubmission}{
 	Submitted to the University of Warwick\\
@@ -41,8 +41,8 @@
 \renewcommand{\thesisauthorno}{9999999}
 
 
-\renewcommand{\thesismonth}{May}
-\renewcommand{\thesisyear}{2018}
+\renewcommand{\thesismonth}{Month}
+\renewcommand{\thesisyear}{Year}
 \renewcommand{\thesistitle}{Thesis Title}
 
 
@@ -58,19 +58,6 @@
                                      %% and don't use any titles or degrees.
 
 \renewcommand{\thesisauthoraddress}{Author Address}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%! For the library declaration page only
-%! \renewcommand{\thesiscopyrightagree}{agree}
-                        %! agreement to allow single photocopies this is the default
-%! \renewcommand{\thesiscopyrightagree}{diagree}
-                        %! refusal  to allow single photocopies
-
-%! Change these to disagree if you do not want access to your thesis immediately
-%! You should do this for online if parts of your thesis are either in submission or not yet submitted to a conference/journal
-%! \newcommand{\thesislibraryonlineimmediately}{agree}
-%! \newcommand{\thesislibraryhardimmediately}{agree}
-%! \newcommand{\thesislibraryafterperiod}{2 years}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,8 +97,13 @@
 
 \begin{document}
 
-%! Generate the copyright page for the library.
-\thesislibrarycopyrightpage
+
+% Include library deposit form
+\iffalse
+\includepdf[
+	pages=-
+]{Preamble/library_declaration_and_deposit_agreement.pdf}
+\fi
 
 \thesistitlebrandingpage
 
@@ -161,9 +153,5 @@
 
 \bibliographystyle{plainnat}
 \bibliography{Bib/bib}
-
-%% Write your vita here
-%\begin{thesisauthorvita}
-%\end{thesisauthorvita}
 
 \end{document}

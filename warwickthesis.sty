@@ -251,12 +251,6 @@
 \newcommand{\thesisauthoraddress}{USA}
 \newcommand{\thesisapprovedby}{Approved by}
 \newcommand{\thesisapprovedbytypesize}{\large}
-\newcommand{\thesiscopyrightholder}{\thesisauthor}
-\newcommand{\thesiscopyrightagree}{agree}
-
-\newcommand{\thesislibraryonlineimmediately}{agree}
-\newcommand{\thesislibraryhardimmediately}{agree}
-\newcommand{\thesislibraryafterperiod}{2 years}
 
 \newcommand{\thesistypist}{the author}
 \newcommand{\thesistype}{Thesis}
@@ -356,115 +350,8 @@ the degree of }
 \newcommand{\@chaptertype}{\chaptername}
 \newcommand{\@appendix}{0}
 
-%%%
-%%% Command to generate up-to-date copyright page.
-%%%
-
 \usepackage{calc} % Needed to calculate how much to offset the warwick logo by
-
 \RequirePackage{pifont}
-\newcommand{\wcmark}{\ding{51}}%
-\newcommand{\wtick}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\wcmark}}\hspace{-2.5pt}}
-
-\newcommand{\thesislibrarycopyrightpage}{
-%%* Localise the \leftskip by grouping
-%{\leftskip-0.25in
-%
-%\fontsize{12}{15}                       % set to 12pt
-%\selectfont
-
-%!-------------------------------------------------------------------------
-%! Produce Warwick letterhead     uses epsf.tex epsf.sty black_white.eps
-%!         For the LIBRARY
-
-%!-------------------------------------------------------------------------
-\AddToShipoutPictureBG*{%
-  % -0.625cm is found from looking at the word template available at:
-  % https://warwick.ac.uk/services/externalaffairs/brand/thesis/
-  \AtPageUpperLeft{\raisebox{-\height-0.625cm}{\includegraphics{Images/keyline_A4_portrait_black_2}}}%
-}
-
-\setlength{\unitlength}{1pt}
-\pagestyle{empty}
-
-%!-------------------------------------------------------------------------
-%! End of Warwick letterhead
-%!-------------------------------------------------------------------------
-
-\fontfamily{phv}                        % set font to Adobe Helvetica
-%\fontsize{8}{14}                        % set to 8pt with 10pt leading (not normally needed)
-\selectfont
-\begin{spacing}{1}
-
-{\centering
-\textbf{\Large Library Declaration and Deposit Agreement}
-\par}
-\vspace{2mm}
-\begin{enumerate}
-  \item \textbf{STUDENT DETAILS}
-  \begin{description}
-      \item[] \thesisauthor
-      \item[] \thesisauthorno
-  \end{description}
-  
-  \item \textbf{THESIS DEPOSIT}
-  \begin{enumerate}[2.1]
-      \item  Under your registration at the University, you are required to deposit your thesis with the University in BOTH hard copy and in digital format. The digital copy should normally be saved as a single pdf file.
-      \item The hard copy will be housed in the University Library. The digital copy will be deposited in the University's Institutional Repository (WRAP). Unless otherwise indicated (see 2.6 below), this will be made immediately openly accessible on the Internet and will be supplied to the British Library to be made available online via its Electronic Theses Online Service (EThOS) service. 
-%[At present, theses submitted for a Master's degree by Research (MA, MSc, LLM, MS or MMedSci) are not being deposited in WRAP and not being made available via EthOS. This may change in future.] 
-      \item In exceptional circumstances, the Chair of the Board of Graduate Studies may grant permission for an embargo to be placed on public access to the thesis \textbf{in excess of two years}. This must be applied for when submitting the thesis for examination (further information is available in the Guide to Examinations for Higher Degrees by Research.)
-      \item If you are depositing a thesis for a Master's degree by Research, the options below only relate to the hard copy thesis.
-      \item If your thesis contains material protected by third party copyright, you should consult with your department, and if appropriate, deposit an abri\-dged hard and/or digital copy thesis.
-      \item Please tick one of the following options for the availability of your thesis (guidance is available in the Guide to Examinations for Higher Degrees by Research): 
-      \begin{description}
-      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{agree} \AND \equal{\thesislibraryhardimmediately}{agree}}{\item[\wtick] Both the hard and digital copy thesis can be made publicly available immediately}{}
-      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{agree}}{\item[\wtick] The hard copy thesis can be made publicly available immediately and the digital copy thesis can be made publicly available after a period of two years (should you subsequently wish to reduce the embargo period please inform the Library)}{}
-      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{disagree} \AND \equal{\thesislibraryafterperiod}{2 years}}{\item[\wtick] Both the hard and digital copy thesis can be made publicly available after a period of two years (should you subsequently wish to reduce the embargo period please inform the Library)}{}
-      	\ifthenelse{\equal{\thesislibraryonlineimmediately}{disagree} \AND \equal{\thesislibraryhardimmediately}{disagree} \AND \NOT\equal{\thesislibraryafterperiod}{2 years}}{\item[\wtick] Both the hard copy and digital copy thesis can be made publicly available after {\thesislibraryafterperiod} (insert time period in excess of two years). \textbf{This option requires the prior approval of the Chair of the Board of Graduate Studies (see 2.3 above)}}{}
-      \end{description}
-      \item The University encourages users of the Library to utilise theses as much as possible, and unless indicated below users will be able to photocopy your thesis.
-      \begin{description}
-      	%\ifthenelse{\equal{\thesiscopyrightagree}{agree}}{\item[\wnotick]}{\item[\wtick]} \textbf{I do not} wish for my thesis to be photocopied
-      	\item I \textbf{\thesiscopyrightagree} that my thesis may be photocopied.
-      \end{description}
-      \iffalse\item
-      \begin{enumerate}[(a)]
-      \item \underline{Hard Copy}
-         I hereby deposit a hard copy of my thesis in the University Library to be made publicly available to readers \thesiscopyrightagreewhen\\
-         I \thesiscopyrightagree\ that my thesis may be photocopied.
-       \item \underline{Digital Copy}
-        I hereby deposit a digital copy of my thesis to be held in WRAP and made available via EThOS.\\
-       My  \thesisinternetagree
-        \end{enumerate}\fi
-    \end{enumerate}
-    
-   \item \textbf{GRANTING OF NON-EXCLUSIVE RIGHTS}\\
-Whether I deposit my Work personally or through an assistant or other agent, I agree to the following:
-Rights granted to the University of Warwick and the British Library and the user of the thesis through this agreement are non-exclusive. I retain all rights in the thesis in its present version or future versions. I agree that the institutional repository administrators and the British Library or their agents may, without changing content, digitise and migrate the thesis to any medium or format for the purpose of future preservation and accessibility.
-  \item  \textbf{ DECLARATIONS}\\[1em] I DECLARE THAT:
-\begin{itemize}%[leftmargin=*]
-\item I am the author and owner of the copyright in the thesis and/or I have the authority of the authors and owners of the copyright in the thesis to make this agreement. Reproduction of any part of this thesis for teaching or in academic or other forms of publication is subject to the normal limitations on the use of copyrighted materials and to the proper and full acknowledgement of its source.
-\item The digital version of the thesis I am supplying is either the same version as the final, hardbound copy submitted in completion of my degree once any minor corrections have been completed, or is an abridged version (see 2.5 above).
-\item I have exercised reasonable care to ensure that the thesis is original, and does not to the best of my knowledge break any UK law or other Intellectual Property Right, or contain any confidential material. 
-\item I understand that, through the medium of the Internet, files will be available to automated agents, and may be searched and copied by, for example, text mining and plagiarism detection software.
-\item At such time that my thesis will be made publically available digitally (see 2.6 above), I grant the University of Warwick and the British Library a licence to make available on the Internet the thesis in digitised format through the Institutional Repository and through the British Library via the EThOS service.
-\item If my thesis does include any substantial subsidiary material owned by third-party copyright holders, I have sought and obtained permission to include it in any version of my thesis available in digital format and that this permission encompasses the rights that I have granted to the University of Warwick and to the British Library.
-\end{itemize}
-
-\item \textbf{LEGAL INFRINGEMENTS}\\
-I understand that neither the University of Warwick nor the British Library have any obligation to take legal action on behalf of myself, or other rights holders, in the event of infringement of intellectual property rights, breach of contract or of any other right, in the thesis.
-\end{enumerate}
-
-\vspace{-1ex}
-\hspace{-12mm}\rule{140mm}{.1mm}\\
-\emph{Please sign this agreement and ensure it is bound into the final hard bound copy of your thesis, which should be submitted to Student Reception, Senate House.}\\
-\vspace{7mm} \\
-{Student's signature:} \dotfill \dotfill {Date:} \dotfill \\
-\end{spacing}
-\newpage
-\normalfont
-}
-
 \usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
 \usepackage{graphicx}% http://ctan.org/pkg/graphicx
 
@@ -495,16 +382,16 @@ I understand that neither the University of Warwick nor the British Library have
 
 \begin{picture}(135,100)(0,95)
 \put(67.5,170){%
-    \makebox(0,0){%
-        \begin{minipage}{130mm}%
-            \begin{center}\@thesistitle\end{center}%
-        \end{minipage}}}
+	\makebox(0,0){%
+		\begin{minipage}{130mm}%
+			\begin{center}\@thesistitle\end{center}%
+		\end{minipage}}}
 \put(67.5,145){\makebox(0,0){by}}
 \put(67.5,135){\makebox(0,0){\Large \textbf{\thesisauthor}}}
 \put(67.5,100){%
-    \makebox(0,0){%
-        \begin{minipage}{100mm}%
-            \begin{center}%
+	\makebox(0,0){%
+		\begin{minipage}{100mm}%
+			\begin{center}%
                 \textbf{\thesistypetypesize \thesistype}\\
                        \thesissubmission\\
                        \textbf{\thesisdegreetypesize \thesisdegree}%
@@ -520,52 +407,39 @@ I understand that neither the University of Warwick nor the British Library have
 \newpage
 }
 
-%%%
-%%% Command to generate signature page.
-%%%
-%!\newcommand{\thesissignaturepage}{
-%!    \thispagestyle{empty}
-%!    \begin{spacing}{2}
-%!    \strut \vfill
-%!    \begin{center}
-%!      \@thesistitle
-%!    \end{center}
-%!    \vspace{50mm}
-%!    \mbox{} \hfill \begin{minipage}{67mm}
-%!                     \begin{spacing}{1}
-%!                     \@thesisapprovedby\hfill\mbox{} \\
-%!                     \@thesiscommittee \\[15mm]
-%!                     \end{spacing}
-%!                     \setlength{\unitlength}{1mm}
-%!                     \begin{picture}(67,70)(0,0)
-%!                       \multiput(0,70)(0,-10)
-%!                         {\thesiscommitteesize}{\line(1,0){67}}
-%!                     \end{picture}
-%!                   \end{minipage}
-%!    \vfill \strut
-%!    \end{spacing}
-%!    \newpage}
+
+% https://tex.stackexchange.com/questions/1676/how-to-get-good-looking-copyright-and-registered-symbols
+\usepackage{textcomp}
 
 %%%
-%%% Command to generate dedication page.
+%%% Command to generate a Colour title page using the new branding.
 %%%
-%!!!!!!!!!!! Warwick does this in the acknowledgements page
-%!\newcommand{\thesisdedicationpage}{
-%!    \thispagestyle{empty}
-%!    \strut \vfill
-%!    \begin{spacing}{\@defaultbaselinestretch}
-%!    \begin{center}
-%!      \thesisdedication
-%!    \end{center}
-%!    \end{spacing}
-%!    \vfill \strut
-%!    \newpage}
+\newcommand{\thesisplaincopyrightpage}{
+
+\thispagestyle{empty}
+
+\begin{spacing}{2}
+
+\setlength{\unitlength}{1mm}
+
+% \input epsf
+\begin{center}
+\begin{picture}(135,100)(0,95)
+\put(67.5,40){\makebox(0,0){Copyright \textcopyright\ \thesisyear\ \thesisauthor}}
+\end{picture}
+\end{center}
+
+\setlength{\unitlength}{1pt}
+\end{spacing}
+\newpage
+}
+
 
 %%%
 %%% Environment to generate acknowledgments page.
 %%%
 \newenvironment{thesisacknowledgments}
-    {%\doublespace\small\normalsize
+    {%
      \chapter*{\@thesisacknowledgmenthead
          \@mkboth{\uppercase{\@thesisacknowledgmenthead}}
                  {\uppercase{\@thesisacknowledgmenthead}}}
@@ -632,28 +506,6 @@ I understand that neither the University of Warwick nor the British Library have
 %!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
 %!                \raggedright \@thesisacknowledgmentsigplace
             \newpage}
-%%%
-%%% Environment to generate vita page.
-%%%
-\newenvironment{thesisauthorvita}
-    {\clearpage
-     \chapter*{\@thesisvitahead
-         \@mkboth{\uppercase{\@thesisvitahead}}
-                 {\uppercase{\@thesisvitahead}}}
-    \addcontentsline{toc}{chapter}{\@thesisvitahead}
-    \begin{spacing}{\@defaultbaselinestretch}}
-    {\end{spacing} \par \vspace{20mm}
-     \noindent Permanent Address:
-       \begin{minipage}[t]{90mm}
-         \thesisauthoraddress
-       \end{minipage}
-     \par \vspace{15mm}
-     \noindent This \lowercase\expandafter{\thesistype} was
-       typeset with \LaTeXe\footnote{\LaTeXe{} is an extension of \LaTeX.
-       \LaTeX{} is a collection of macros for \TeX.  \TeX{} is a
-       trademark of the American Mathematical Society. The style
-    package {\em warwickthesis} was used.         %! replaces texas ack.
-    } by \thesistypist.}
 
 \newcommand{\@chapteralignment}{\centering}
 \renewcommand{\chapter}{\clearpage
