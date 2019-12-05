@@ -83,12 +83,7 @@
 %%% \thesistitletypesize
 %%%                  %% Typesize used to typeset \thesistitle; defaults
 %%%                  %% to \Large.
-%%% \thesisauthorpreviousdegrees
-%%%                  %% Previous degrees of author; defaults to "Degree"
 %%% \thesissupervisor%% Name of thesis supervisor; defaults to "Supervisor"
-%%% \thesisauthoraddress
-%%%                  %% Permanent address of author; defaults to "USA"
-%%% \thesistypist    %% Name of thesis typist; defaults to "the author".
 %%% \thesistype      %% Type of thesis; defaults to "Dissertation".
 %%% \thesistypetypesize
 %%%                  %% Typesize used to typeset \thesistype; defaults to
@@ -105,10 +100,6 @@
 %!                       Submitted to the University of Warwick\\
 %!                                   for the degree of
 %!
-%%% \thesisvitahead  %% Title of the vita page; defaults to "Vita".
-%%% \thesisvitaheadtypesize
-%%%                  %% Typesize used to typeset \thesisvitahead;
-%%%                  unused.
 %%% \thesisdeclarationhead
 %%%                  %% Title of the declaration page; defaults to
 %%%                  %% "Declaration".
@@ -124,42 +115,6 @@
 %%% \thesisacknowledgmentheadtypesize
 %%%                  %% Typesize used to typeset \thesisacknowledgmenthead;
 %%%                  %% unused.
-%%% \thesisstudent   %% Name of author with previous degrees; defaults to
-%%%                  %% "\thesisauthor, \thesisauthorpreviousdegrees".
-%%% \thesisstudenttypesize
-%%%                  %% Typesize used to typeset \thesisstudent; defaults
-%%%                  %% to \large.
-%!  \thesiscopyrightagree
-%!                   %! agreement for copying the theisis; defaults to
-%!                   %! agree
-%!!!!!!!!!!!!!!!!!!!! The following are not used by Univ. of Warwick !!!!
-%%% \thesisdedication%% Person or thing dedicated to; defaults to
-%%%                  %% "To myself". :-)
-%%%
-%%% \thesisapprovedby%% Approval of dissertation committee; defaults to
-%%%                  %% "Approved by".
-%%% \thesisapprovedbytypesize
-%%%                  %% Typesize used to typeset \thesisapprovedby; defaults
-%%%                  %% to \large.
-%%% \thesiscopyrightholder
-%%%                  %% Name of copyright holder; defaults to \thesisauthor.
-%%% \thesiscommitteesize
-%%%                  %% Number of members in thesis committee; defaults to 5.
-%%% \thesiscommittee %% Name of thesis committee; defaults to
-%%%                  %% "Dissertation Committee:".
-%%% \thesiscommitteetypesize
-%%%                  %% Typesize used to typeset \thesiscommittee; defaults
-%%%                  %% to \large.
-%%% \thesisacknowledgmentsigname
-%%%                  %% Signature on the acknowledgments page; defaults to
-%%%                  %% \thesisauthor.
-%%% \thesisacknowledgmentsignametypesize
-%%%                  %% Typesize used to typeset \thesisacknowledgmentsigname;
-%%%                  %% defaults to \large.
-%%% \thesisacknowledgmentsigplace
-%%%                  %% Address used on the acknowledgments page; defaults
-%%%                  %! to "The University of Warwick \\ \thesismonth
-%%%                  %% \thesisyear".
 
 %%% Most of the default values will satisfy the Graduate School's
 %%% requirements; however, at a minimum, the user SHOULD redefine the
@@ -170,9 +125,6 @@
 %%% \thesismonth
 %%% \thesisyear
 %%% \thesistitle
-%%% \thesisauthorpreviousdegrees
-%%% \thesissupervisor   %! not really used.
-%%% \thesisauthoraddress
 %%%
 %%% In addition to the above variables, the following commands are
 %%% provided to generate the optional sections of the thesis:
@@ -180,10 +132,6 @@
 %%% \thesiscopyrightpage
 %%%                  %% Generates the copyright page.
 %%% \thesistitlepage %% Generates the title page. %! ESSENTIAL
-%%% \thesissignaturepage
-%%%                  %% Generates the signature page. %! NOT USED
-%%% \thesisdedicationpage
-%%%                  %% Generates the dedication page. %! NOT USED
 %%%
 %%% There are also a few environments to generate paragraph-like text:
 %%%
@@ -194,7 +142,6 @@
 %!  thesisabbreviations
 %!                   %! List of abbreviations
 %%% thesisabstract   %% Text of abstract. %! ESSENTIAL
-%%% thesisauthorvita %% Text of author's vita.
 %%%
 %%% Bells and Whistles:
 %%% ===================
@@ -225,15 +172,6 @@
 %%%
 %%% Set up page layout parameters.
 %%%
-%\setlength{\textheight}{8.5in}  %! increased page length Feb 2010 (was 8.0in)
-%\setlength{\oddsidemargin}{0.7in}
-%\setlength{\evensidemargin}{0.7in}
-%\setlength{\textwidth}{5.50in}
-%\setlength{\topmargin}{0.5in}
-%\setlength{\headheight}{0in}
-%\setlength{\headsep}{0in}
-%\setlength{\parindent}{12mm}
-
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=4cm]{geometry}
 
 %%%
@@ -241,45 +179,24 @@
 %%%
 \newcommand{\@universityname}{The University of Warwick}
 \newcommand{\thesisdepartmentname}{mydepartment}
-\newcommand{\@publicationno}{Publication No.\ \line(1,0){40} \\[10mm]}
-\newcommand{\thesisauthor}{Ima Student} 
-\newcommand{\thesisauthorno}{ ..university number..}
+\newcommand{\thesisauthor}{Ima Student}
 \newcommand{\thesismonth}{May}
 \newcommand{\thesisyear}{1994} 
 \newcommand{\thesistitle}{Title}
+\newcommand{\thesissubject}{Thesis Subject}
+\newcommand{\thesiskeywords}{Thesis Keywords}
 \newcommand{\thesistitletypesize}{\Large}
-\newcommand{\thesisauthorpreviousdegrees}{Degree}
 \newcommand{\thesissupervisor}{Supervisor}
-\newcommand{\thesisauthoraddress}{USA}
-\newcommand{\thesisapprovedby}{Approved by}
-\newcommand{\thesisapprovedbytypesize}{\large}
 
-\newcommand{\thesistypist}{the author}
 \newcommand{\thesistype}{Thesis}
 \newcommand{\thesistypetypesize}{\large}
-\newcommand{\thesistypesize}{\large} \newcommand{\thesisdegree}{Doctor
-of Philosophy}
+\newcommand{\thesistypesize}{\large}
+\newcommand{\thesisdegree}{Doctor of Philosophy}
 \newcommand{\thesisdegreetypesize}{\large}
 \newcommand{\thesisdegreeabbreviation}{Ph.D.}
-\newcommand{\thesissubmission}{Submitted to \@universityname \\for
-the degree of }
-\newcommand{\thesiscommitteesize}{5}
-\newcommand{\thesiscommittee}{Dissertation Committee:}
-\newcommand{\thesiscommitteetypesize}{\large}
-\newcommand{\thesisvitahead}{Vita}
-\newcommand{\thesisvitaheadtypesize}{\Large}
+\newcommand{\thesissubmission}{Submitted to \@universityname\\for the degree of }
 \newcommand{\thesisacknowledgmenthead}{Acknowledgments}
 \newcommand{\thesisacknowledgmentheadtypesize}{\Large}
-\newcommand{\thesisacknowledgmentsigname}{\thesisauthor}
-\newcommand{\thesisacknowledgmentsignametypesize}{\large}
-%! notused
-%!  \newcommand{\thesisacknowledgmentsigplace}%
-%!    {{\slshape
-%!       \renewcommand{\arraystretch}{1.0}
-%!       \begin{tabular}{l}
-%!         \@universityname \\
-%!         \thesismonth\ \thesisyear
-%!       \end{tabular}}}
 
 \newcommand{\thesisabbreviationhead}{Abbreviations}
 
@@ -287,20 +204,14 @@ the degree of }
 
 \newcommand{\thesisabstracthead}{Abstract}
 
-\newcommand{\thesisstudent}{\thesisauthor, \thesisauthorpreviousdegrees}
-\newcommand{\thesisstudenttypesize}{\large}
-\newcommand{\thesisdedication}{}
-
 %%%
 %%% Command for masters theses.  \phdthesis is provided for symmetry.
 %%%
 \newcommand{\mastersthesis}{
     \renewcommand{\thesistype}{Thesis}
-    \renewcommand{\@publicationno}{}
     \renewcommand{\thesisdegree}{Master of Arts}
     \renewcommand{\thesisdegreeabbreviation}{M.A.}
-    \renewcommand{\thesiscommitteesize}{2}
-    \renewcommand{\thesiscommittee}{Supervising Committee:}}
+  }
 \newcommand{\phdthesis}{}
 
 %%%
@@ -308,30 +219,14 @@ the degree of }
 %%%
 \newcommand{\@defaultbaselinestretch}{1.5}
 \newcommand{\@base}[1]{\renewcommand{\baselinestretch}{#1}}
-%\newcommand{\singlespace}{\renewcommand{\@defaultbaselinestretch}{1.1}}
-%\newcommand{\oneandhalfspace}{\renewcommand{\@defaultbaselinestretch}{1.5}}
-%\newcommand{\doublespace}{\renewcommand{\@defaultbaselinestretch}{1.7}}
 \newcommand{\@thesistitle}{\textbf{\thesistitletypesize \thesistitle}}
-\newcommand{\@thesisapprovedby}%
-    {\textbf{\thesisapprovedbytypesize \thesisapprovedby}}
 \newcommand{\@thesistype}{\textbf{\thesistypetypesize \thesistype}}
 \newcommand{\@thesisdegree}{\textbf{\thesisdegreetypesize \thesisdegree}}
 \newcommand{\@thesisdegreeabbreviation}{\thesisdegreeabbreviation}
-\newcommand{\@thesiscommittee}%
-    {\textbf{\thesiscommitteetypesize \thesiscommittee}}
-\newcommand{\@thesisvitahead}{\thesisvitahead}
-\newcommand{\@thesisacknowledgmenthead}%
-    {\thesisacknowledgmenthead}
-\newcommand{\@thesisdeclarationhead}%
-    {\thesisdeclarationhead}
-\newcommand{\@thesisabstracthead}%
-    {\thesisabstracthead}
-\newcommand{\@thesisabbreviationhead}%
-    {\thesisabbreviationhead}
-%! \newcommand{\@thesisacknowledgmentsigname}%
-%!    {\textsc{\thesisacknowledgmentsignametypesize \thesisacknowledgmentsigname}}
-%!\newcommand{\@thesisacknowledgmentsigplace}{\thesisacknowledgmentsigplace}
-\newcommand{\@thesisstudent}{\textbf{\thesisstudenttypesize \thesisstudent}}
+\newcommand{\@thesisacknowledgmenthead}{\thesisacknowledgmenthead}
+\newcommand{\@thesisdeclarationhead}{\thesisdeclarationhead}
+\newcommand{\@thesisabstracthead}{\thesisabstracthead}
+\newcommand{\@thesisabbreviationhead}{\thesisabbreviationhead}
 
 %%%
 %%% Indent the first paragraph after a sectioning command.
@@ -353,9 +248,8 @@ the degree of }
 \newcommand{\@appendix}{0}
 
 \usepackage{calc} % Needed to calculate how much to offset the warwick logo by
-\RequirePackage{pifont}
-\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
-\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+\usepackage{eso-pic}
+\usepackage{graphicx}
 
 %%%
 %%% Command to generate a Colour title page using the new branding.
@@ -371,40 +265,34 @@ the degree of }
 }
 
 \begin{spacing}{2}
-
-\setlength{\unitlength}{1mm}
-
-% \input epsf
 \begin{center}
-%\begin{picture}(50,65)%(56,50)
-%%* Remove file extension to work with both latex (.eps) and pdflatex (.pdf)
-%%* Binary knows which extension to use by default
  \includegraphics[width=5cm]{Images/Warwick_Crest}
-%\end{picture}
 
-\begin{picture}(135,100)(0,95)
-\put(67.5,170){%
-	\makebox(0,0){%
-		\begin{minipage}{130mm}%
-			\begin{center}\@thesistitle\end{center}%
-		\end{minipage}}}
-\put(67.5,145){\makebox(0,0){by}}
-\put(67.5,135){\makebox(0,0){\Large \textbf{\thesisauthor}}}
-\put(67.5,100){%
-	\makebox(0,0){%
-		\begin{minipage}{100mm}%
-			\begin{center}%
-                \textbf{\thesistypetypesize \thesistype}\\
-                       \thesissubmission\\
-                       \textbf{\thesisdegreetypesize \thesisdegree}%
-            \end{center}%
-        \end{minipage}}}
-\put(67.5,60){\makebox(0,0){\textbf{\Large \thesisdepartmentname}}}
-\put(67.5,50){\makebox(0,0){\thesismonth \ \thesisyear}}
+ \vspace{10mm}
 
-\end{picture}
+ \@thesistitle
+
+ \vspace{2mm}
+
+ by
+
+ \vspace{2mm}
+
+ {\Large \textbf{\thesisauthor}}
+
+ \vspace{10mm}
+
+ \textbf{\thesistypetypesize \thesistype}\\
+ \thesissubmission\\
+ \textbf{\thesisdegreetypesize \thesisdegree}
+
+ \vspace{15mm}
+
+ \textbf{\Large \thesisdepartmentname}
+
+ \thesismonth~\thesisyear
+
 \end{center}
-\setlength{\unitlength}{1pt}
 \end{spacing}
 \newpage
 }
@@ -414,24 +302,18 @@ the degree of }
 \usepackage{textcomp}
 
 %%%
-%%% Command to generate a Colour title page using the new branding.
+%%% Command to generate a copyright page.
+%%% This isn't necessary to do.
 %%%
 \newcommand{\thesisplaincopyrightpage}{
 
 \thispagestyle{empty}
 
 \begin{spacing}{2}
-
-\setlength{\unitlength}{1mm}
-
-% \input epsf
 \begin{center}
-\begin{picture}(135,100)(0,95)
-\put(67.5,40){\makebox(0,0){Copyright \textcopyright\ \thesisyear\ \thesisauthor}}
-\end{picture}
+\vspace{100mm}
+Copyright \textcopyright\ \thesisyear\ \thesisauthor
 \end{center}
-
-\setlength{\unitlength}{1pt}
 \end{spacing}
 \newpage
 }
@@ -441,55 +323,32 @@ the degree of }
 %%% Environment to generate acknowledgments page.
 %%%
 \newenvironment{thesisacknowledgments}
-    {%
-     \chapter*{\@thesisacknowledgmenthead
+    {\chapter*{\@thesisacknowledgmenthead
          \@mkboth{\uppercase{\@thesisacknowledgmenthead}}
                  {\uppercase{\@thesisacknowledgmenthead}}}
      \addcontentsline{toc}{chapter}{\@thesisacknowledgmenthead}
      \begin{spacing}{\@defaultbaselinestretch}}
-    {\end{spacing}
-%!                \par \vspace{20mm}
-%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
-%!                \raggedright \@thesisacknowledgmentsigplace
-            \newpage}
+    {\end{spacing}\newpage}
+
 %%%
 %%% Environment to generate declarations page.
 %%%
 \newenvironment{thesisdeclaration}
-    {%\doublespace\small\normalsize
-     \chapter*{\@thesisdeclarationhead
+    {\chapter*{\@thesisdeclarationhead
          \@mkboth{\uppercase{\@thesisdeclarationhead}}
                  {\uppercase{\@thesisdeclarationhead}}}
      \addcontentsline{toc}{chapter}{\@thesisdeclarationhead}
      \begin{spacing}{\@defaultbaselinestretch}}
-    {\end{spacing}
-%!                \par \vspace{20mm}
-%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
-%!                \raggedright \@thesisacknowledgmentsigplace
-            \newpage}
+    {\end{spacing}\newpage}
+
 %%%
 %%% Environment to generate abstract page.
 %%%
 \newenvironment{thesisabstract}
-    {%\doublespace\small\normalsize
-     \chapter*{\@thesisabstracthead                 %!picked up from above
+    {\chapter*{\@thesisabstracthead                 %!picked up from above
          \@mkboth{\uppercase{\@thesisabstracthead}}  %!picked up from above
                  {\uppercase{\@thesisabstracthead}}} %!picked up from above
        \addcontentsline{toc}{chapter}{\@thesisabstracthead}
-%!     \vspace*{0mm}
-%!     \begin{center}
-%!       \setlength{\unitlength}{1mm}
-%!      \begin{spacing}{2}
-%!       \@thesistitle \\[10mm]
-%!       \end{spacing}
-%!       \begin{spacing}{\@defaultbaselinestretch}
-%!       \@publicationno
-%!       \thesisauthor, \thesisdegreeabbreviation \\
-%!       \@universityname, \thesisyear \\[10mm]
-%!       \end{spacing}
-%!       Supervisor: \thesissupervisor \\
-%!     \end{center}
-%!     \vspace{5mm}
      \begin{spacing}{\@defaultbaselinestretch} \noindent}
     {\end{spacing}\newpage}
 
@@ -497,17 +356,12 @@ the degree of }
 %%% Environment to generate abbreviations page.
 %%%
 \newenvironment{thesisabbreviations}
-    {%\doublespace\small\normalsize
-     \chapter*{\@thesisabbreviationhead
+    {\chapter*{\@thesisabbreviationhead
          \@mkboth{\uppercase{\@thesisabbreviationhead}}
                  {\uppercase{\@thesisabbreviationhead}}}
      \addcontentsline{toc}{chapter}{\@thesisabbreviationhead}
      \begin{spacing}{\@defaultbaselinestretch}}
-    {\end{spacing}
-%!                \par \vspace{20mm}
-%!                \raggedleft \@thesisacknowledgmentsigname \\[10mm]
-%!                \raggedright \@thesisacknowledgmentsigplace
-            \newpage}
+    {\end{spacing}\newpage}
 
 \newcommand{\@chapteralignment}{\centering}
 \renewcommand{\chapter}{\clearpage
@@ -593,38 +447,6 @@ the degree of }
 %%%
 %%% Command from report.cls, (c) LaTeX3 Project.
 %%%
-
-
-%\renewenvironment{thebibliography}[1]
-%     {\chapter*{\bibname
-%         \@mkboth{\uppercase{\bibname}}{\uppercase{\bibname}}}%
-%      \addcontentsline{toc}{chapter}{\bibname}
-%      \list{\@biblabel{\arabic{enumiv}}}%
-%           {\settowidth\labelwidth{\@biblabel{#1}}%
-%            \leftmargin\labelwidth
-%            \advance\leftmargin\labelsep
-%            \if@openbib
-%              \advance\leftmargin\bibindent
-%              \itemindent -\bibindent
-%              \listparindent \itemindent
-%              \parsep \z@
-%            \fi
-%            \usecounter{enumiv}%
-%            \let\p@enumiv\@empty
-%            \renewcommand\theenumiv{\arabic{enumiv}}}%
-%      \if@openbib
-%        \renewcommand\newblock{\par}
-%      \else
-%        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-%      \fi
-%      \sloppy\clubpenalty4000\widowpenalty4000%
-%      \sfcode`\.=\@m}
-%     {\def\@noitemerr{\@warning{Empty `thebibliography' environment}}%
-%      \endlist}
-
-%%%
-%%% Command from report.cls, (c) LaTeX3 Project.
-%%%
 \renewcommand\listoftables{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -666,9 +488,9 @@ the degree of }
 %%% Command to print draft version of the thesis.
 %%%
 \newcommand{\thesisdraft}{
-    \setlength{\topmargin}{0in}
-    \setlength{\headheight}{0.2in}
-    \setlength{\headsep}{0.25in}
+    %\setlength{\topmargin}{0in}
+    %\setlength{\headheight}{0.2in}
+    %\setlength{\headsep}{0.25in}
     \renewcommand{\@textpagestyle}{myheadings}
     \def\ps@myheadings{%
      \let\@oddfoot\@empty\let\@evenfoot\@empty

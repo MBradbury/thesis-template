@@ -1,5 +1,21 @@
 % !TeX root = Thesis.tex
 
+\usepackage[hidelinks]{hyperref}
+
+% PDF Metadata
+\hypersetup%
+{%
+	pdfencoding=auto,
+	pdfauthor={\thesisauthor},
+	pdfproducer={\thesisauthor},
+	pdfsubject={\thesissubject},
+	pdftitle={\thesistitle},
+	pdfkeywords={\thesiskeywords}
+}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
 \usepackage[UKenglish]{babel}
 
 %%%%%%%%%%%%%%%
@@ -15,18 +31,13 @@
 
 \usepackage{microtype} % Use this for nicer text spacing
 
-%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%
-
-\usepackage[hidelinks]{hyperref}
+\usepackage{enumerate}
 
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%
 
-% From: https://tex.stackexchange.com/questions/159257/increase-latex-table-row-height
-% Increase the height of table rows, as they seem pretty cramped
 \usepackage{tabularx}
-\setlength\extrarowheight{2pt}
+\usepackage{booktabs}
 
 % From: https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
 \usepackage{array}

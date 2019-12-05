@@ -2,12 +2,10 @@
 
 % Warwick thesis template from: https://www2.warwick.ac.uk/fac/sci/physics/staff/academic/mhadley/wthesis/
 
-\usepackage{warwickthesis,setspace,graphicx}
+\usepackage{warwickthesis}
 \usepackage[numbers,sort&compress,square]{natbib}
-\usepackage{enumerate}
 
 \phdthesis
-
 %\thesisdraft                       %% Uncomment this if you want a draft
                                      %% version; this will print a timestamp
                                      %% on each page of your thesis.
@@ -20,15 +18,12 @@
                                      %% of Tables and Figures and the Vita.
                                      %% The default is \centerchapter.
 
+\usepackage{setspace}
+
 \onehalfspacing                      %! This is the default and gives an acceptable "double spaced" thesis
                                      %! It is the minimum spacing accepted by the graduate school, and there is no reason to increase the spacing.
-% \singlespacing                     %! Uncomment if you want single-spacing,
+%\singlespacing                     %! Uncomment if you want single-spacing,
 %\doublespacing                     %! uncomment if you want real double-spacing for some perverse reason.
-
-%\setlength{\textheight}{8.75in}      %! Uncomment this for a slightly
-                                     %! longer page. The default is now 8.5in (from Feb 2010)
-                                     %! regulations require page numbers to be at least 1.5cm into the page.
-                                     %! You can even try a longer page to save paper.
 
 \renewcommand{\thesisdepartmentname}{Department of \ldots}
 
@@ -38,28 +33,23 @@
 	for admission to the degree of}
 
 \renewcommand{\thesisauthor}{Author Name}
-\renewcommand{\thesisauthorno}{9999999}
-
-
 \renewcommand{\thesismonth}{Month}
 \renewcommand{\thesisyear}{Year}
+
 \renewcommand{\thesistitle}{Thesis Title}
-
-
-
 \renewcommand{\thesistitletypesize}{\huge}
-
-\renewcommand{\thesisauthorpreviousdegrees}{MEng}
-                                     %% Your previous degrees, abbreviated;
-                                     %% separate multiple degrees by commas.
 
 \renewcommand{\thesissupervisor}{Supervisor Name}
                                      %% Your thesis supervisor; use mixed-case
                                      %% and don't use any titles or degrees.
 
-\renewcommand{\thesisauthoraddress}{Author Address}
+\renewcommand{\thesissubject}{Thesis Subject}
+                                     %% The subject your thesis is in.
 
+\renewcommand{\thesiskeywords}{Keyword 1, Keyword 2}
+                                     %% Keywords for your thesis
 
+                                     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 %%% The following commands are all optional, but useful if your requirements
@@ -73,19 +63,10 @@
                                      %% correct FULL OFFICIAL name of
                                      %% the degree.
 
-% \renewcommand{\thesisdegreeabbreviation}{...}
-                                     %% Use this if you also use the above
-                                     %% command; provide the OFFICIAL
-                                     %% abbreviation of your thesis degree.
-
 %\renewcommand{\thesistype}{Thesis}    %% Use this ONLY if your thesis type
                                      %! is NOT "Thesis"
                                      %% Provide the OFFICIAL type of the
                                      %% thesis; use mixed-case.
-
-% \renewcommand{\thesistypist}{...}  %% Use this to specify the name of
-                                     %% the thesis typist if it is anything
-                                     %% other than "the author".
 
 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +77,6 @@
 \input{Header}
 
 \begin{document}
-
 
 % Include library deposit form
 \iffalse
