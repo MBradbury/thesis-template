@@ -48,37 +48,8 @@
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%
 
-% From: https://tex.stackexchange.com/questions/34155/autoref-does-not-capitalize-initial-character-in-sentence-when-referencing-labe
-\usepackage{catoptions}
-\makeatletter
-\def\figureautorefname{figure}
-\def\tableautorefname{table}
-\def\definitionautorefname{definition}
-%\def\algorithmautorefname{algorithm} % Already defined
-\def\Autoref#1{%
-  \begingroup
-  \edef\reserved@a{\cpttrimspaces{#1}}%
-  \ifcsndefTF{r@#1}{%
-    \xaftercsname{\expandafter\testreftype\@fourthoffive}
-      {r@\reserved@a}.\\{#1}%
-  }{%
-    \ref{#1}%
-  }%
-  \endgroup
-}
-\def\testreftype#1.#2\\#3{%
-  \ifcsndefTF{#1autorefname}{%
-    \def\reserved@a##1##2\@nil{%
-      \uppercase{\def\ref@name{##1}}%
-      \csn@edef{#1autorefname}{\ref@name##2}%
-      \autoref{#3}%
-    }%
-    \reserved@a#1\@nil
-  }{%
-    \autoref{#3}%
-  }%
-}
-\makeatother
+% Recommended to use for in-document cross-referencing.
+\usepackage{cleveref}
 
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%
