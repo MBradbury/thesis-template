@@ -1,8 +1,3 @@
-% 30 sept 96 copyright page modified
-
-% 2 Oct title page compressed to make room for longer titles
-
-
 % wthesis.sty modified by M hadley from utthesis.sty  Sept 96
 % is used for all my comments and changes.
 % more modifications made in December 1996
@@ -165,8 +160,11 @@
 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{thesis}[2022/03/24 Thesis]
+
 \typeout{*************************************************************}
-\typeout{** Warwick Thesis Style File Sept 1996                       }
+\typeout{** Thesis Style File Sept 2022 }
 \typeout{*************************************************************}
 
 %%%
@@ -177,7 +175,7 @@
 %%%
 %%% Set up default values.
 %%%
-\newcommand{\@universityname}{The University of Warwick}
+\newcommand{\universityname}{The University of \ldots}
 \newcommand{\thesisdepartmentname}{mydepartment}
 \newcommand{\thesisauthor}{Ima Student}
 \newcommand{\thesismonth}{May}
@@ -194,7 +192,7 @@
 \newcommand{\thesisdegree}{Doctor of Philosophy}
 \newcommand{\thesisdegreetypesize}{\large}
 \newcommand{\thesisdegreeabbreviation}{Ph.D.}
-\newcommand{\thesissubmission}{Submitted to \@universityname\\for the degree of }
+\newcommand{\thesissubmission}{Submitted to \universityname\\for the degree of }
 \newcommand{\thesisacknowledgmenthead}{Acknowledgments}
 \newcommand{\thesisacknowledgmentheadtypesize}{\Large}
 
@@ -247,56 +245,18 @@
 \newcommand{\@chaptertype}{\chaptername}
 \newcommand{\@appendix}{0}
 
-\usepackage{calc} % Needed to calculate how much to offset the warwick logo by
-\usepackage{eso-pic}
-\usepackage{graphicx}
+\usepackage{kvoptions}
+\usepackage{etoolbox}
 
-%%%
-%%% Command to generate a Colour title page using the new branding.
-%%%
-\newcommand{\thesistitlebrandingpage}{
+% Process parameters
+\DeclareStringOption{university}
+\ProcessKeyvalOptions*
 
-\thispagestyle{empty}
+\ifdefempty{\thesis@university}
+{\PackageError{thesis}{university parameter not specified}{You need to provide the university parameter to the package}}
+{}
 
-\AddToShipoutPictureBG*{%
-  % -0.625cm is found from looking at the word template available at:
-  % https://warwick.ac.uk/services/externalaffairs/brand/thesis/
-  \AtPageUpperLeft{\raisebox{-\height-0.625cm}{\includegraphics{Images/keyline_A4_portrait_black_2}}}%
-}
-
-\begin{spacing}{2}
-\begin{center}
- \includegraphics[width=5cm]{Images/Warwick_Crest}
-
- \vspace{10mm}
-
- \@thesistitle
-
- \vspace{2mm}
-
- by
-
- \vspace{2mm}
-
- {\Large \textbf{\thesisauthor}}
-
- \vspace{10mm}
-
- \textbf{\thesistypetypesize \thesistype}\\
- \thesissubmission\\
- \textbf{\thesisdegreetypesize \thesisdegree}
-
- \vspace{15mm}
-
- \textbf{\Large \thesisdepartmentname}
-
- \thesismonth~\thesisyear
-
-\end{center}
-\end{spacing}
-\newpage
-}
-
+\input{Universities/\thesis@university}
 
 % https://tex.stackexchange.com/questions/1676/how-to-get-good-looking-copyright-and-registered-symbols
 \usepackage{textcomp}

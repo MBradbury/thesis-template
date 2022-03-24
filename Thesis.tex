@@ -1,8 +1,6 @@
 \documentclass[11pt,a4paper]{report}
 
-% Warwick thesis template from: https://www2.warwick.ac.uk/fac/sci/physics/staff/academic/mhadley/wthesis/
-
-\usepackage{warwickthesis}
+\usepackage[university=lancaster]{thesis}
 \usepackage[numbers,sort&compress,square]{natbib}
 
 \phdthesis
@@ -28,7 +26,7 @@
 \renewcommand{\thesisdepartmentname}{Department of \ldots}
 
 \renewcommand{\thesissubmission}{
-	Submitted to the University of Warwick\\
+	Submitted to \universityname\\
 	in partial fulfilment of the requirements\\
 	for admission to the degree of}
 
@@ -78,11 +76,11 @@
 
 \begin{document}
 
-% Include library deposit form
+% Include any specific coversheets as required
 \iffalse
 \includepdf[
 	pages=-
-]{Preamble/library_declaration_and_deposit_agreement.pdf}
+]{Preamble/coversheet.pdf}
 \fi
 
 \hypersetup{pageanchor=false}

@@ -1,0 +1,51 @@
+\renewcommand{\universityname}{The University of Warwick}
+
+\usepackage{calc} % Needed to calculate how much to offset the warwick logo by
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+%%%
+%%% Command to generate a Colour title page using the new branding.
+%%%
+\newcommand{\thesistitlebrandingpage}{
+
+\thispagestyle{empty}
+
+\AddToShipoutPictureBG*{%
+  % -0.625cm is found from looking at the word template available at:
+  % https://warwick.ac.uk/services/externalaffairs/brand/thesis/
+  \AtPageUpperLeft{\raisebox{-\height-0.625cm}{\includegraphics{Universities/warwick-keyline}}}%
+}
+
+\begin{spacing}{2}
+\begin{center}
+ \includegraphics[width=5cm]{Universities/warwick-crest}
+
+ \vspace{10mm}
+
+ \@thesistitle
+
+ \vspace{2mm}
+
+ by
+
+ \vspace{2mm}
+
+ {\Large \textbf{\thesisauthor}}
+
+ \vspace{10mm}
+
+ \textbf{\thesistypetypesize \thesistype}\\
+ \thesissubmission\\
+ \textbf{\thesisdegreetypesize \thesisdegree}
+
+ \vspace{15mm}
+
+ \textbf{\Large \thesisdepartmentname}
+
+ \thesismonth~\thesisyear
+
+\end{center}
+\end{spacing}
+\newpage
+}

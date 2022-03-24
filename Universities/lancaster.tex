@@ -1,0 +1,43 @@
+\renewcommand{\universityname}{Lancaster University}
+
+\usepackage{graphicx}
+
+%%%
+%%% Command to generate a Colour title page using the new branding.
+%%%
+\newcommand{\thesistitlebrandingpage}{
+
+\thispagestyle{empty}
+
+\begin{spacing}{2}
+\begin{center}
+ \includegraphics[width=9cm]{Universities/lancaster-logo}
+
+ \vspace{40mm}
+
+ \@thesistitle
+
+ \vspace{2mm}
+
+ by
+
+ \vspace{2mm}
+
+ {\Large \textbf{\thesisauthor}}
+
+ \vspace{10mm}
+
+ \textbf{\thesistypetypesize \thesistype}\\
+ \thesissubmission\\
+ \textbf{\thesisdegreetypesize \thesisdegree}
+
+ \vspace{15mm}
+
+ \textbf{\Large \thesisdepartmentname}
+
+ \thesismonth~\thesisyear
+
+\end{center}
+\end{spacing}
+\newpage
+}
