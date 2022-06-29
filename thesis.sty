@@ -170,7 +170,7 @@
 %%%
 %%% Set up page layout parameters.
 %%%
-\usepackage[top=3cm, bottom=3cm, left=4cm, right=4cm]{geometry}
+\usepackage{geometry}
 
 %%%
 %%% Set up default values.
@@ -178,6 +178,7 @@
 \newcommand{\universityname}{The University of \ldots}
 \newcommand{\thesisdepartmentname}{mydepartment}
 \newcommand{\thesisauthor}{Ima Student}
+\newcommand{\thesisauthordegrees}{BSc (Hons)}
 \newcommand{\thesismonth}{May}
 \newcommand{\thesisyear}{1994} 
 \newcommand{\thesistitle}{Title}
@@ -191,7 +192,7 @@
 \newcommand{\thesistypesize}{\large}
 \newcommand{\thesisdegree}{Doctor of Philosophy}
 \newcommand{\thesisdegreetypesize}{\large}
-\newcommand{\thesisdegreeabbreviation}{Ph.D.}
+\newcommand{\thesisdegreeabbreviation}{PhD}
 \newcommand{\thesissubmission}{Submitted to \universityname\\for the degree of }
 \newcommand{\thesisacknowledgmenthead}{Acknowledgments}
 \newcommand{\thesisacknowledgmentheadtypesize}{\Large}
@@ -199,6 +200,7 @@
 \newcommand{\thesisabbreviationhead}{Abbreviations}
 
 \newcommand{\thesisdeclarationhead}{Declarations}
+\newcommand{\thesisdeclarationbody}{}
 
 \newcommand{\thesisabstracthead}{Abstract}
 
@@ -207,10 +209,14 @@
 %%%
 \newcommand{\mastersthesis}{
     \renewcommand{\thesistype}{Thesis}
-    \renewcommand{\thesisdegree}{Master of Arts}
-    \renewcommand{\thesisdegreeabbreviation}{M.A.}
+    \renewcommand{\thesisdegree}{Master of Science}
+    \renewcommand{\thesisdegreeabbreviation}{MSc}
   }
-\newcommand{\phdthesis}{}
+\newcommand{\phdthesis}{
+    \renewcommand{\thesistype}{Thesis}
+    \renewcommand{\thesisdegree}{Doctor of Philosophy}
+    \renewcommand{\thesisdegreeabbreviation}{PhD}
+}
 
 %%%
 %%% Set up other commands.
@@ -256,6 +262,7 @@
 {\PackageError{thesis}{university parameter not specified}{You need to provide the university parameter to the package}}
 {}
 
+% Inlcude university-specific configuration
 \input{Universities/\thesis@university}
 
 % https://tex.stackexchange.com/questions/1676/how-to-get-good-looking-copyright-and-registered-symbols
@@ -298,7 +305,8 @@ Copyright \textcopyright\ \thesisyear\ \thesisauthor
          \@mkboth{\uppercase{\@thesisdeclarationhead}}
                  {\uppercase{\@thesisdeclarationhead}}}
      \addcontentsline{toc}{chapter}{\@thesisdeclarationhead}
-     \begin{spacing}{\@defaultbaselinestretch}}
+     \begin{spacing}{\@defaultbaselinestretch}
+     \thesisdeclarationbody}
     {\end{spacing}\newpage}
 
 %%%

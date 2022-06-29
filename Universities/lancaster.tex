@@ -2,6 +2,15 @@
 
 \usepackage{graphicx}
 
+\newgeometry{left=38mm, right=25mm, top=25mm, bottom=25mm, includeheadfoot}
+
+\renewcommand{\thesisdeclarationbody}{%
+I declare that the work presented in this thesis is, to the best of my knowledge and belief, original and my own work. The material has not been submitted, either in whole or in part, for a degree at this, or any other university. This thesis does not exceed the maximum permitted word length of 80,000 words including appendices and footnotes, but excluding the bibliography. A rough estimate of the word count is: \textbf{word count}
+\vspace{3\baselineskip} 
+
+\noindent \thesisauthor
+}
+
 %%%
 %%% Command to generate a Colour title page using the new branding.
 %%%
@@ -13,7 +22,7 @@
 \begin{center}
  \includegraphics[width=9cm]{Universities/lancaster-logo}
 
- \vspace{40mm}
+ \vspace{35mm}
 
  \@thesistitle
 
@@ -23,7 +32,9 @@
 
  \vspace{2mm}
 
- {\Large \textbf{\thesisauthor}}
+\ifthenelse{\equal{\thesisauthordegrees}{}}%
+{\Large \textbf{\thesisauthor}}%
+{\Large \textbf{\thesisauthor, \thesisauthordegrees}}
 
  \vspace{10mm}
 
